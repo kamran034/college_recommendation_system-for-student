@@ -1,0 +1,249 @@
+nav .logout-btn{
+    margin-left: 5px;
+}
+
+body{
+  font-family: Arial, sans-serif;
+}
+
+.banner_main{
+ /* height:100vh  ;
+ background: linear-gradient(to right , rgba(0,0,0,0.6),rgba(0,0,0,0.6)
+ , url(../images/banner.jpg));
+ background-position: center;
+ background-size: cover; */
+    background:linear-gradient(to right , rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(../images/col-banner1.jpg) !important;
+    padding: 200px 0px 100px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: auto;
+
+
+}
+
+.navbg{
+  background: #6e4aee;
+}
+
+.nav-item{
+  font-weight: bold;
+  color: #060827;
+}
+
+
+.text-capitalize{
+  margin: 0px 0px 0px 0px !important;
+  color: #6e4aee;
+}
+
+
+.head1{
+  color: #6e4aee;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* font-style: italic; */
+}
+
+
+.text-waring{
+    color: white;
+   
+}
+.para{
+    color:  white;
+}
+.about-section{
+    background: #f5f5f5;
+}
+.aboutimg img{
+  padding:10px;
+  border: 1px solid #ddd;
+}
+/*degree separete page section*/
+
+.degreepost{
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: solid 5px #6e4aee;
+  margin-bottom: 10px;;
+}
+
+.degree-1 h2{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.depart h2{
+  color: #6e4aee;
+  text-transform: uppercase;
+  
+
+}
+
+/*degree single section*/
+.blog-post h2{
+  color: #6e4aee;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.subjectpost{
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: solid 5px #6e4aee;
+  margin-bottom: 10px;;
+}
+.sidebar h4{
+  color: #6e4aee;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* college page*/
+.college-1 h2{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.collegepost{
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: solid 5px #6e4aee;
+  margin-bottom: 10px;;
+}
+.clgheading{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* recommendation page*/
+.recommend-1 h2{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.recommend-2 h2{
+  color: #6e4aee;
+  
+  font-weight: bold;
+}
+.clgaddresss{
+  color: #6e4aee;
+  
+  font-weight: bold;
+}
+
+.recommend-1 p{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.recommendpost{
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-bottom: solid 5px #6e4aee;
+  
+  margin-bottom: 10px;
+}
+.recommendheading{
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.recommendpost1{
+  padding: 20px;
+  background-color:  #f5f5f5;
+  border-bottom: solid 5px #060827;
+ 
+  margin-bottom: 10px;
+}
+
+
+/* feedback/rating*/
+.feedback-section{
+  background: #f5f5f5;
+  
+}
+.feedback-heading {
+  color: #6e4aee;
+  text-transform: uppercase;
+  font-weight: bold;
+  
+}
+.heading h4{
+  font-weight:  bold;
+  padding: 10px;
+  margin: auto;
+  color: #6e4aee;
+}
+.rateheading {
+  color: #6e4aee;
+  font-weight:  bold;
+  
+  margin: auto;
+}
+.heading img{
+  padding:10px;
+  border: 1px solid #ddd;
+  display: block;
+  height: 60%;
+  width: 90%;
+}
+
+
+
+
+.rate > input{
+  display: none;
+}
+
+.rate{
+  display: inline-block;;
+  border: 0;
+}
+
+.rate > label{
+  float: right;
+}
+
+/* Showing the stars */
+.rate > label:before{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: FontAwesome;
+  content: "\f005";
+  margin:0;
+  padding:0.3rem .2rem;
+  cursor: pointer;
+}
+
+/* Half star */
+.rate .half:before{
+  content: "\f089";
+  position: absolute;
+  padding-right: 0;
+}
+
+/* Click and hover */
+input:checked ~ label, label:hover ~ label{
+  color: yellow
+  /* color: #ffb503; */
+}
+
+/* hover hightlight */
+input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label{
+  color: #cc9000;
+}
+
+
+  
+  
+
+
+@media  (max-width: 992px){
+    nav .logout-btn{
+        margin: 5px 0px 0px 0px;
+    }
+    
+}
+

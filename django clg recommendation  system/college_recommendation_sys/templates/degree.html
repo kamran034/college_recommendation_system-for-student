@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block contact %}
+<br>
+<section class="degrees-section py-5" id="degrees">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+
+             <div class="titlepage  mt-2 mb-5 degree-1">
+                <h2>Degree <hr></h2>
+             </div>
+          </div>
+       </div>
+       <div class="row ">
+         {% for post in posts %}
+          <div class="col-md-12 mt-2 degreepost ">
+             <div class="row d_flex  ">
+                <div class="col-md-5">
+                   <div class="news_img aboutimg">
+                      <img src="{{ post.image.url }}" alt="Sample degree img" class="img-fluid">
+                   </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="card-title depart">
+                          <h2>{{post.title | safe}}</h2>
+                        </div>
+                        
+                        <div class="card-text">
+                          <p>
+                           {{post.text | safe | truncatechars:150}}
+                          </p>
+                        </div>
+                       <a href="{%  url 'single_deg' post.slug %}" class="btn btn-outline-primary rounded-1 ">Read More</a>
+                    </div>
+                </div>
+                   
+                </div>
+             </div>
+             {%  endfor %}
+          </div>
+          <br>
+          <br>
+          <br>
+          <!-- <div class="col-md-12 mt-2">
+            
+         
+             <div class="row d_flex">
+                <div class="col-md-5">
+                   <div class="news_img">
+                      <figure><img src="/static/images/univeristy.jpg " class="img-fluid"></figure>
+                   </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <div class="card-title">
+                          <h2>This is the blog title</h2>
+                        </div>
+                        <p class="text-muted">August 24, 2023</p>
+                        <div class="card-text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Deleniti corporis quis ab. Exercitationem et quibusdam
+                            impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                            maxime facere, quod harum aliquid in...
+                          </p>
+                        </div>
+                       <a href="single_deg.html" class="btn btn-outline-primary rounded-0 "
+                          >Read More</a
+                        >
+                    </div>
+                </div>
+             </div>
+          </div> -->
+       </div>
+       
+</section>
+
+
+
+{% endblock  %}

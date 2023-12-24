@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block contact %}
+
+
+
+<br>
+
+<section class="college-section py-5" id="degrees">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+
+             <div class="titlepage  mt-2 mb-5  college-1">
+                <h2>Colleges <hr></h2>
+             </div>
+          </div>
+       </div>
+       {% for x in cposts %}
+       <div class="row ">
+          <div class="col-lg-12 mt-2 collegepost">   
+                    <div class="card-body ">
+                        <div class="card-title text-danger">
+                          <h2 class="clgheading">{{ x.title | safe}}</h2>
+                        </div>
+                       
+                        <p class="text text-center clgheading">Affiliate with BISE An Intermediate</p>
+                        <div class="card-text">
+                          <p>
+                           {{ x.text | safe}}
+                          </p>
+                        </div>
+                        <div class="meritlist">
+                           <h5 class="text-center clgheading"> MERITS <hr></h5>
+                          <h6>LAST MERIT FOR FSC (ENG)   :  {{ x.meritFSCE | safe}}</h6>
+                          <h6>LAST MERIT FOR FSC (MED)   :  {{ x.meritFSCM | safe}}</h6>
+                          <h6>LAST MERIT FOR ICS (COMPUTER SCIENCE)   :  {{ x.meritICSC | safe}}</h6>
+                          <h6>LAST MERIT FOR ICS (STATICES)   :  {{ x.meritICSS | safe}}</h6>
+                          <h6>LAST MERIT FOR ICS (ECONOMICS)   :  {{ x.meritICSE | safe}}</h6>
+                          <h6>LAST MERIT FOR ICOM   :  {{ x.meritCOM | safe}}</h6>
+                        </div>
+                       <a href="{%  url 'single_colg' x.slug %}" class="btn btn-outline-primary rounded-1 mb-2">Read More</a>
+                    </div>
+                    <div class="clglink text-center">
+                     <a href="{{ x.collegelink }}" class="btn btn-outline-primary rounded-1 mb-2"> Visit College website</a>
+
+                   </div>
+                </div>
+             </div>
+             {%   endfor %} 
+          </div>
+          <br>
+          <br>
+          <!-- <div class="col-md-12 mt-2">
+             <div class="row d_flex">
+                <div class="col-md-5">
+                   <div class="news_img">
+                      <figure><img src="/static/images/univeristy.jpg" class="img-fluid"></figure>
+                   </div>
+                </div>
+                <div class="col-md-7">
+                   <div class="card-body">
+                        <div class="card-title">
+                          <h2>This is the blog title</h2>
+                        </div>
+                        <p class="text-muted">August 24, 2023</p>
+                        <div class="card-text">
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Deleniti corporis quis ab. Exercitationem et quibusdam
+                            impedit? Sint vitae labore nulla sit, dignissimos non tempore,
+                            maxime facere, quod harum aliquid in...
+                          </p>
+                        </div>
+                       <a href="single_deg.html" class="btn btn-outline-primary rounded-0 ">Read More</a>
+                    </div>
+                </div>
+             </div>
+          </div>
+         
+          </div> -->
+       
+       
+</section>
+
+
+
+
+
+{% endblock  %}

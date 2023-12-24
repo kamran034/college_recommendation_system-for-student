@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block contact %}
+
+
+
+<br>
+<section class="feedback-section   " id="feedback/Rating">
+  <div class="container ">
+   <div class="feedback">
+     <div class="row">
+       <div class="col-md-12    mt-5 mb-2">
+         <h3 class="feedback-heading "> Feedback &amp; Rating <hr/></h3>
+
+       </div>
+     </div>
+   </div>
+   {% if messages %}
+
+   {% for message in messages %}
+   <div class="alert alert-info">
+     {{ message }}
+   </div>
+   {% endfor %}
+
+   {% endif %}
+    <div class="row">
+     <div class="col-lg-6 d-flex   ">
+       <div class="heading">
+         <h4>Create your BEST experience <br>by becoming a Part of our webiste</h4>
+         <img src="/static/images/feedback.jpg"  class="img-fluid  shadow " alt="feedback">
+       </div>
+       
+     </div>
+     <div class="col-lg-6 ">
+        <form  method="POST" action="{% url 'submit_review' %}" >
+         {% csrf_token %}
+         <h5 class="rateheading">Write your reviews</h5>
+         <div>
+           <!--rating star-->
+           <label>What do you rate this system</label>
+           <br>
+           <div class="rate">
+             <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10" title="5"></label>
+             <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating10" title="4.5" class="half"></label>
+             <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating10" title="4"></label>
+             <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating10" title="3.5" class="half"></label>
+             <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating10" title="3"></label>
+             <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating10" title="2.5" class="half"></label>
+             <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating10" title="2"></label>
+             <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating10" title="1.5" class="half"></label>
+             <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating10" title="1"></label>
+             <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating10" title="0.5" class="half"></label>
+           </div>
+           <br>
+           
+           Review title:
+           <input type="text" class="form-control" name="subject" required>
+           <br>
+           Review:
+           <textarea name="review"  rows="4" class="form-control"></textarea required>
+          </div>
+          
+           
+         <br>
+         <input type="hidden" name= "validuser" class="form-control" id="website" value="{{post.user}}" required="">
+         <input type="submit" value="Submit Review" class="btn btn-primary  mb-2">
+
+        </form>
+     </div>
+     
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{% endblock  %}

@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% block contact %}
+    <!--banner section-->
+    <section class="banner_main">
+      <div class="container d-flex h-100">
+        <div class="row m-o w-100">
+          <div class="col-md-8 ">
+            <h1 class="text-capitalize">
+              <span class="text-waring"> COLLEGE </span><br>
+              IS BEST PLACE
+            </h1></br>
+            <p class="para"> TO LEARN EVERY THING </p>
+            <br>
+            <p class="text-waring">Make Future With Us </p>
+            <div class="button btn-lg  ">
+              <a class="btn btn-primary" href="{{ '/recommendation/recommend' }}">Recommendation</a>
+            </div>
+          </div>
+    
+        </div>
+    
+      </div>
+    
+      </div>
+    
+      </div>
+    
+    
+    </section>
+    <!-- end banner section-->
+    <!--start about section-->
+  <section class="about-section py-5" id="about">
+    <div class="container">
+      <div class="row d-flex justify-content-between g-4">
+  
+        <div class="col-lg-4 d-flex justify-content-center aboutimg">
+          <img src="/static/images/about pic2.jpg" class="img-fluid  shadow" alt="about-img">
+  
+        </div>
+        <div class="col-lg-8 d-flex flex-column">
+          <h2 class="head1 fs-1 fst-italic">
+            About
+            <hr />
+          </h2>
+          <p>Our mission is to empower students with the knowledge, skills, and values necessary for success in a rapidly
+            changing world. We believe in: </p>
+          <ul>
+  
+            <li>Academic Excellence:</li>
+            <li>Innovation: </li>
+            <li>Diversity and Inclusion:</li>
+            <li>Community Engagement: </li>
+            <li> Personal Growth: </li>
+          </ul>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+    <!--end about section-->
+
+    <!--start degree section-->
+  
+  <section class="degrees-section py-5" id="degrees">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+  
+          <div class="titlepage text-center mt-2 mb-5 degree-1">
+            <h2>Degree
+              <hr />
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for post in posts %}
+        <div class="col-md-12 mt-2 degreepost">
+          <div class="row d_flex">
+            <div class="col-md-4">
+              <div class="news_img aboutimg">
+                <figure><img src="{{ post.image.url }}" alt="Sample degree img" class="img-fluid shadow"></figure>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <div class="card-title depart">
+                  <h2>{{post.title | safe}}</h2>
+                </div>
+                
+                <div class="card-text">
+                  <p>
+                    {{post.text | safe | truncatechars:150}}
+                  </p>
+                </div>
+                <a href="{%  url 'single_deg' post.slug %}" class="btn btn-outline-primary rounded-1 ">Read More</a>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  
+    </div>
+  </section>
+
+    <!--end degree section-->
+    <!--start feedback/rating section-->
+  <section class="feedback-section   " id="feedback/Rating">
+    <div class="container ">
+      <div class="feedback">
+        <div class="row">
+          <div class="col-md-12    mt-5 mb-2">
+            <h3 class="feedback-heading "> Feedback &amp; Rating
+              <hr />
+            </h3>
+  
+          </div>
+        </div>
+      </div>
+      {% if messages %}
+  
+      {% for message in messages %}
+      <div class="alert alert-info">
+        {{ message }}
+      </div>
+      {% endfor %}
+  
+      {% endif %}
+      <div class="row">
+        <div class="col-lg-6 d-flex   ">
+          <div class="heading">
+            <h4>Create your BEST experience <br>by becoming a Part of our webiste</h4>
+            <img src="/static/images/feedback.jpg" class="img-fluid  shadow " alt="feedback">
+          </div>
+  
+        </div>
+        <div class="col-lg-6 ">
+          <form method="POST" action="{% url 'submit_review' %}">
+            {% csrf_token %}
+            <h5 class="rateheading">Write your reviews</h5>
+            <div>
+              <!--rating star-->
+              <label>What do you rate this system</label>
+              <br>
+              <div class="rate">
+                <input type="radio" name="rating" id="rating10" value="5" required /><label for="rating10"
+                  title="5"></label>
+                <input type="radio" name="rating" id="rating9" value="4.5" required /><label for="rating10" title="4.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating8" value="4" required /><label for="rating10"
+                  title="4"></label>
+                <input type="radio" name="rating" id="rating7" value="3.5" required /><label for="rating10" title="3.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating6" value="3" required /><label for="rating10"
+                  title="3"></label>
+                <input type="radio" name="rating" id="rating5" value="2.5" required /><label for="rating10" title="2.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating4" value="2" required /><label for="rating10"
+                  title="2"></label>
+                <input type="radio" name="rating" id="rating3" value="1.5" required /><label for="rating10" title="1.5"
+                  class="half"></label>
+                <input type="radio" name="rating" id="rating2" value="1" required /><label for="rating10"
+                  title="1"></label>
+                <input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating10" title="0.5"
+                  class="half"></label>
+              </div>
+              <br>
+  
+              Review title:
+              <input type="text" class="form-control" name="subject" required>
+              <br>
+              Review:
+              <textarea name="review" rows="4" class="form-control"></textarea required>
+               </div>
+               
+              <br>
+              <input type="hidden" name= "validuser" class="form-control" id="website" value="{{post.user}}" required="">
+              <input type="submit" value="Submit Review" class="btn btn-primary  mb-2">
+  
+             </form>
+          </div>
+          
+  
+         </div>
+  
+       </div>
+  
+     </section>
+
+    <!--end feedback/rating section-->
+
+ <!--start footer section-->
+
+ {% endblock  %}

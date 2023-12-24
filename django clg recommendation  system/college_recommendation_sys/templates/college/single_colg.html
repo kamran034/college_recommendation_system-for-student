@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block contact %}
+
+
+<br>
+<br>
+<br>
+<section class="single_clg">
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-12 collegepost">
+            <div class="clg-post  college-1 ">
+                <h2 >{{post.title | safe}}</h2>
+                <p class="text-muted">August 24, 2023</p>
+                <p>{{post.text |safe }}</p>
+                
+            </div>
+            <div class="meritlist ">
+                <h5 class="text-center clgheading"> MERITS</h5>
+                <h6 >LAST MERIT FOR FSC (ENG)   :  {{ post.meritFSCE | safe}}</h6>
+                <h6>LAST MERIT FOR FSC (MED)   :  {{ post.meritFSCM | safe}}</h6>
+                <h6>LAST MERIT FOR ICS (COMPUTER SCIENCE)   :  {{ post.meritICSC | safe}}</h6>
+                <h6>LAST MERIT FOR ICS (STATICES)   :  {{ post.meritICSS | safe}}</h6>
+                <h6>LAST MERIT FOR ICS (ECONOMICS)   :  {{ post.meritICSE | safe}}</h6>
+                <h6>LAST MERIT FOR ICOM   :  {{ post.meritCOM | safe}}</h6>
+              </div>
+        </div>
+    </div>
+
+  <div class="container">
+    <div class="row ">
+        {% for post in posts %}
+         <div class="col-md-12 mt-2 ">
+           
+               <div class="col-md-12 collegepost">
+                   <div class="card-body">
+                       <div class="card-title">
+                         <h2>{{post.title | safe}}</h2>
+                       </div>
+                       <p class="text-muted">August 24, 2023</p>
+                       
+                       <div class="card-text">
+                         <p>
+                          {{post.text | safe | truncatechars:100}}
+                         </p>
+                       </div>
+                      <a href="{%  url 'single_deg' post.slug %}" class="btn btn-outline-primary rounded-1 ">Read More</a>
+                   </div>
+               </div>
+               
+               {%  endfor %}
+               </div>
+            </div>
+        
+         </div>    
+</div>
+<div class="container">
+  <div class="col-12">
+    <div class="button btn-lg text-center">
+      <a class="btn btn-primary" href="{{ '/clgpost/college' }}">back</a>
+    </div>
+
+  </div>
+</div>
+<br>
+<div class="container">
+    {% if messages %}
+
+     {% for message in messages %}
+     <div class="alert alert-info">
+       {{ message }}
+     </div>
+     {% endfor %}
+
+     {% endif %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a Comment</h3>
+
+                <form  method="POST" class="p-5 bg-light"  >
+                 {% csrf_token %}
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" name="name" class="form-control" id="name" required="">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" name="email" class="form-control" id="email" required="">
+                  </div>
+                  <br>
+               
+                  <br>
+
+     
+                    <input type="hidden" name= "postsno" class="form-control" id="website" value="{{post.sno}}" required="">
+            
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" class="form-control" required=""></textarea>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn btn-primary" action='/single_colg/'>
+                  </div>
+
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-5">
+            <h3 class="mb-5">Comments</h3>
+            <ul class="comment-list">
+              <li class="comment">
+
+
+                {% for com in comment %}
+                  
+              
+                <div class="comment-body">
+
+                  <h3>{{com.name | safe}}</h3>
+      
+                  <p>{{com.message|safe}}</p>
+    
+                </div>
+
+                  {% endfor %}
+              </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>        
+
+</section>
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}

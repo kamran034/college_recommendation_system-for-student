@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block contact %}
+
+
+
+
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <div class="heading  recommend-1">
+            <h2>RECOMMENDATION SYSTEM <hr> </h2>
+            <p  >Build up Your Future With Us</p>
+            </div>
+        </div>
+
+    </div> 
+
+</div>
+
+	<!-- Main Content -->
+	<div class="container">
+	
+					
+					<div class="row">
+                        <div class="col-lg-12 recommendpost">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">Recommend Colleges</button>
+                            </form>
+				</div>
+
+
+            </div>
+            <br>
+            <h2 class="recommendheading">Recommended Colleges:</h2>
+            {% if recommended_colleges %}
+              {% for college in recommended_colleges %}
+            <div class="container">
+             
+              <div class="row   mt-2">
+                <div class="col-lg-12 recommendpost1 ">   
+                         <div class="card-body ">
+                             <div class="card-title recommend-2">
+                               <h2>{{ college.name | safe}}</h2>
+                             </div>
+                            
+                             <!-- <p class="text">{{college.minimum_score}}</p> -->
+                             <div class="card-text">
+                               <p  class="clgaddresss">
+                               college Address:<h5>{{ college.location| safe}}</h5> 
+                               </p>
+                               <div class="clglink text-center">
+                                <p>How to Get admission click On
+                                <a href="{{ college.collegelink }}" class="btn btn-outline-primary rounded-1 mb-2"> college link</a>
+                                </p>
+                              </div>
+                               
+                              <div class="clglink text-center">
+                                <a href="/clgpost/college" class="btn btn-outline-primary rounded-1 mb-2"> See More Colleges</a>
+                               
+                              </div>
+                             </div>
+                         </div>
+                     </div>
+                  </div>
+                </div>
+                  {%   endfor %} 
+                {% else %}
+            <p>No colleges found based on the given criteria.</p>
+             {% endif %}
+                  <br>
+                  <br>
+	</div>
+
+  
+    
+
+
+
+
+
+
+
+
+{% endblock  %}
