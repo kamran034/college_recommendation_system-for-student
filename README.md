@@ -1,1 +1,1 @@
-College_recommendation_system for student is a web application build in python django framework 
+The college recommendation system for students is a web application developed using the Python Django framework
